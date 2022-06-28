@@ -18,13 +18,17 @@ $monthLetters = date('F'); // F = June
 $totalDaysinMonth = cal_days_in_month(CAL_GREGORIAN, $monthNumber, $year);
 
 // on utilise mktime pour trouver le timestamp du premier jour du mois exemple : mktime (Heure, Minute, Seconde, Mois, Jour, Année)
-$firstDayinMonth = date('N', mktime(0, 0, 0, $monthNumber, 1, $year));
+$firstDayinMonth = date('N', mktime(0, 0, 0, $monthNumber, 1, $year)); // N = numéro du jour ex: Lundi = 1 Mercredi = 3 Dimanche = 7
 $lastDayinMonth = date('N', mktime(0, 0, 0, $monthNumber, $totalDaysinMonth, $year));
 
-$totalCases = ($firstDayinMonth - 1) + $totalDaysinMonth + (7 - $lastDayinMonth);
+// On calcule le nombre total de cases de notre calendrier 
+// Le nombre de cases vides avant 1 jour du mois correspond à ($firstDayinMonth - 1)
+// Le nombre de cases vides après le dernier jour du mois correspond à (7 - $lastDayinMonth)
+$totalCases = ($firstDayinMonth - 1) + $totalDaysinMonth + (7 - $lastDayinMonth); 
 
-// Nous allons calculer le timestamp de la 1ère case du calendrier 
-$firstCaseTimestamp = strtotime(date("$year-$monthNumber-1") . '-' . ($firstDayinMonth - 1) . 'days');
+// Nous allons calculer le timestamp de la 1ère case du calendrier :
+// strtotime (2022 / 6 / 1 - "le nombre de cases vides avant le premier jour du mois" . days )
+$firstCaseTimestamp = strtotime("$year-$monthNumber-1" . ' - ' . ($firstDayinMonth - 1) . 'days');
 
 // nous allons créer une fonction pour créer une case dans le calendrier 
 // la fonction prend en compte trois paramètres : firstCaseTimestamp, le numéro de la case et le mois
