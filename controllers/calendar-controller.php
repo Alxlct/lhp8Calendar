@@ -24,7 +24,12 @@ $lastDayinMonth = date('N', mktime(0, 0, 0, $monthNumber, $totalDaysinMonth, $ye
 $totalCases = ($firstDayinMonth - 1) + $totalDaysinMonth + (7 - $lastDayinMonth);
 
 // Nous allons calculer le timestamp de la 1ère case du calendrier 
-
 $firstCaseTimestamp = strtotime(date("$year-$monthNumber-1") . '-' . ($firstDayinMonth - 1) . 'days');
 
-var_dump(date ('d-m-Y',$firstCaseTimestamp));
+// nous allons créer une fonction pour créer une case dans le calendrier 
+// la fonction prend en compte trois paramètres : firstCaseTimestamp, le numéro de la case et le mois
+function createCase($firstCaseTimestamp, $caseNumber, $month)
+{
+    $timestamp = strtotime(date('Y-m-d', $firstCaseTimestamp) . '+' . ($caseNumber - 1) . 'days');
+    return '<div class ="border border-dark text-center">' . date('j', $timestamp) . '</div>';
+}
