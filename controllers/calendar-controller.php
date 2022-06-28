@@ -33,5 +33,15 @@ function createCase($firstCaseTimestamp, $caseNumber, $month)
     // nous allons calculer le timestamp de la case pour cela, on utilise la fonction strtotime 
     // strtotime (date('Y-m-d')) pour obtenir la date US Année / Mois / Jour, on rajoute la journée en fonction de la case d'où le -1
     $timestamp = strtotime(date('Y-m-d', $firstCaseTimestamp) . '+' . ($caseNumber - 1) . 'days');
-    return '<div class ="border border-dark text-center">' . date('j', $timestamp) . '</div>';
+
+    // Nous allons faire une condition pour griser les cases qui ne sont point du mois en cours
+    // Condition pour colorer en bleu le jour J
+
+    if (date('Y-m-d', $timestamp) == date('Y-m-d')) {
+        return '<div class ="border border-dark text-center bg-info">' . date('j', $timestamp) . '</div>';
+    } elseif (date('n', $timestamp) == $month) {
+        return '<div class ="border border-dark text-center">' . date('j', $timestamp) . '</div>';
+    } else {
+        return '<div class ="border border-dark text-center bg-secondary">' . date('j', $timestamp) . '</div>';
+    }
 }
