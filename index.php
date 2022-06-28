@@ -8,17 +8,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lhp8Calendar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/style.css">
 </head>
 
 <body>
-
-    <h1 class="text-center">Calendrier LHP8</h1>
-    <h2><?= $year ?></h2>
-    <h2><?= $monthLetters ?></h2>
-
+    <div class="text-center">
+        <h1>Calendrier LHP8</h1>
+        <h2><a class="btn"><i class="bi bi-chevron-double-left me-2"></i></a><?= $year ?><a class="btn"><i class="bi bi-chevron-double-right ms-2"></i></a></h2>
+        <h2><a class="btn"><i class="bi bi-chevron-left me-1"></i></a><?= $monthLetters ?><a class="btn"><i class="bi bi-chevron-right ms-1"></i></a></h2>
+    </div>
     <div class="row justify-content-center p-0 mt-5 mx-0">
         <div class="col-10 calendar p-0 m-0">
 
