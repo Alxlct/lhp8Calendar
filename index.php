@@ -20,7 +20,7 @@
         <h2><a class="btn"><i class="bi bi-chevron-double-left me-2"></i></a><?= $year ?><a class="btn"><i class="bi bi-chevron-double-right ms-2"></i></a></h2>
         <h2><a class="btn"><i class="bi bi-chevron-left me-1"></i></a><?= $monthLetters ?><a class="btn"><i class="bi bi-chevron-right ms-1"></i></a></h2>
     </div>
-    <div class="row justify-content-center p-0 mt-5 mx-0">
+    <div class="row justify-content-center p-0 mt-3 mx-0">
         <div class="col-10 calendar p-0 m-0">
 
             <!-- Nous réalisons une boucle pour afficher les jours de la semaine -->
