@@ -30,6 +30,8 @@ $firstCaseTimestamp = strtotime(date("$year-$monthNumber-1") . '-' . ($firstDayi
 // la fonction prend en compte trois paramètres : firstCaseTimestamp, le numéro de la case et le mois
 function createCase($firstCaseTimestamp, $caseNumber, $month)
 {
+    // nous allons calculer le timestamp de la case pour cela, on utilise la fonction strtotime 
+    // strtotime (date('Y-m-d')) pour obtenir la date US Année / Mois / Jour, on rajoute la journée en fonction de la case d'où le -1
     $timestamp = strtotime(date('Y-m-d', $firstCaseTimestamp) . '+' . ($caseNumber - 1) . 'days');
     return '<div class ="border border-dark text-center">' . date('j', $timestamp) . '</div>';
 }
