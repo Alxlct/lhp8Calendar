@@ -30,8 +30,11 @@
             <?php } ?>
 
 
-
-
+            <!-- Nous allons dessiner le nombre de cases correspondant au total de cases nécessaires au calendrier -->
+            <?php
+            for ($i = 1; $i <= $totalCases; $i++) { ?>
+                <div class="text-center border border-dark"><?= $i ?></div>
+            <?php } ?>
 
         </div>
     </div>
