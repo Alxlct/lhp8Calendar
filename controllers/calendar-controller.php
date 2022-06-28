@@ -10,10 +10,10 @@ $days = [
     7 => 'Dimanche'
 ];
 
-// $year = l'année, $monthNumber = la date en Chiffre, $monthLetters = la date en Lettres,
-$year = date('Y');
-$monthNumber = date('n');
-$monthLetters = date('F');
+// $year = l'année liée au jour J, $monthNumber = le mois en Chiffre du jour J, $monthLetters = le mois en Lettres du jour J,
+$year = date('Y'); // Y = 2022
+$monthNumber = date('n'); // n = 6 
+$monthLetters = date('F'); // F = June
 // On utilise cal_days_in_month pour calculer le nombre de jours dans le mois (cal_gregorian, mois, année)
 $totalDaysinMonth = cal_days_in_month(CAL_GREGORIAN, $monthNumber, $year);
 
