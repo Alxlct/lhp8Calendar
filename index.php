@@ -17,8 +17,8 @@
 <body>
     <div class="text-center">
         <h1>Calendrier LHP8</h1>
-        <h2><a class="btn"><i class="bi bi-chevron-double-left me-2"></i></a><?= $year ?><a class="btn"><i class="bi bi-chevron-double-right ms-2"></i></a></h2>
-        <h2><a class="btn"><i class="bi bi-chevron-left me-1"></i></a><?= $monthLetters ?><a class="btn"><i class="bi bi-chevron-right ms-1"></i></a></h2>
+        <h2><a class="btn" href="index.php?<?= isset($_GET['month']) ? 'month=' . $_GET['month'] . '&' : '' ?>year=<?= $year - 1 ?>"><i class="bi bi-chevron-double-left me-2"></i></a><?= $year ?><a class="btn" href="index.php?<?= isset($_GET['month']) ? 'month=' . $_GET['month'] . '&' : '' ?>year=<?= $year + 1 ?>"><i class=" bi bi-chevron-double-right ms-2"></i></a></h2>
+        <h2><a class="btn" href="index.php?<?= isset($_GET['year']) ? 'year=' . $_GET['year'] . '&' : '' ?>month=<?= $monthNumber == 1 ? 12 : $monthNumber - 1 ?>"><i class="bi bi-chevron-left me-1"></i></a><?= $monthLetters ?><a class="btn" href="index.php?<?= isset($_GET['year']) ? 'year=' . $_GET['year'] . '&' : '' ?>month=<?= $monthNumber == 12 ? 1 : $monthNumber + 1 ?>"><i class="bi bi-chevron-right ms-1"></i></a></h2>
     </div>
     <div class="row justify-content-center p-0 mt-3 mx-0">
         <div class="col-10 calendar p-0 m-0">
@@ -33,7 +33,7 @@
             <!-- Nous allons dessiner le nombre de cases correspondant au total de cases nécessaires au calendrier -->
             <?php
             for ($i = 1; $i <= $totalCases; $i++) { ?>
-                <?= createCase($firstCaseTimestamp, $i, $monthNumber) ?>
+                <?= createCase($firstCaseTimestamp, $i, $monthNumber, $arraySpecialDays) ?>
             <?php } ?>
 
         </div>
